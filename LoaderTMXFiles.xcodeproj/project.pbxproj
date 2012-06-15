@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF35FBBB158A6FA900A18AC1 /* TMXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBBA158A6FA900A18AC1 /* TMXLoader.cpp */; };
+		CF35FBBE158A6FBA00A18AC1 /* TMXMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBBD158A6FBA00A18AC1 /* TMXMap.cpp */; };
+		CF35FBC1158A6FD500A18AC1 /* TMXTileSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC0158A6FD500A18AC1 /* TMXTileSet.cpp */; };
+		CF35FBC4158A6FE600A18AC1 /* TMXLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC3158A6FE600A18AC1 /* TMXLayer.cpp */; };
+		CF35FBC9158A6FF600A18AC1 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC5158A6FF600A18AC1 /* tinyxml.cpp */; };
+		CF35FBCA158A6FF600A18AC1 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC7158A6FF600A18AC1 /* tinyxmlerror.cpp */; };
+		CF35FBCB158A6FF600A18AC1 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */; };
+		CF35FBCE158A708100A18AC1 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBCC158A708100A18AC1 /* tinystr.cpp */; };
+		CFD4A8D0158A5BA300E37DC8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD4A8CF158A5BA300E37DC8 /* main.cpp */; };
+		CFD4A8D2158A5BA300E37DC8 /* LoaderTMXFiles.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CFD4A8C9158A5BA300E37DC8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				CFD4A8D2158A5BA300E37DC8 /* LoaderTMXFiles.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CF35FBB9158A6FA100A18AC1 /* TMXLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXLoader.h; sourceTree = "<group>"; };
+		CF35FBBA158A6FA900A18AC1 /* TMXLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXLoader.cpp; sourceTree = "<group>"; };
+		CF35FBBC158A6FB400A18AC1 /* TMXMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXMap.h; sourceTree = "<group>"; };
+		CF35FBBD158A6FBA00A18AC1 /* TMXMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXMap.cpp; sourceTree = "<group>"; };
+		CF35FBBF158A6FCB00A18AC1 /* TMXTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXTileSet.h; sourceTree = "<group>"; };
+		CF35FBC0158A6FD500A18AC1 /* TMXTileSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXTileSet.cpp; sourceTree = "<group>"; };
+		CF35FBC2158A6FDF00A18AC1 /* TMXLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXLayer.h; sourceTree = "<group>"; };
+		CF35FBC3158A6FE600A18AC1 /* TMXLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXLayer.cpp; sourceTree = "<group>"; };
+		CF35FBC5158A6FF600A18AC1 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		CF35FBC6158A6FF600A18AC1 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		CF35FBC7158A6FF600A18AC1 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		CF35FBCC158A708100A18AC1 /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		CF35FBCD158A708100A18AC1 /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		CFD4A8CB158A5BA300E37DC8 /* LoaderTMXFiles */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LoaderTMXFiles; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD4A8CF158A5BA300E37DC8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = LoaderTMXFiles.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFD4A8C8158A5BA300E37DC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFD4A8C0158A5BA300E37DC8 = {
+			isa = PBXGroup;
+			children = (
+				CFD4A8CE158A5BA300E37DC8 /* LoaderTMXFiles */,
+				CFD4A8CC158A5BA300E37DC8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFD4A8CC158A5BA300E37DC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4A8CB158A5BA300E37DC8 /* LoaderTMXFiles */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFD4A8CE158A5BA300E37DC8 /* LoaderTMXFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4A8CF158A5BA300E37DC8 /* main.cpp */,
+				CF35FBCC158A708100A18AC1 /* tinystr.cpp */,
+				CF35FBCD158A708100A18AC1 /* tinystr.h */,
+				CF35FBC5158A6FF600A18AC1 /* tinyxml.cpp */,
+				CF35FBC6158A6FF600A18AC1 /* tinyxml.h */,
+				CF35FBC7158A6FF600A18AC1 /* tinyxmlerror.cpp */,
+				CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */,
+				CF35FBB9158A6FA100A18AC1 /* TMXLoader.h */,
+				CF35FBBA158A6FA900A18AC1 /* TMXLoader.cpp */,
+				CF35FBBC158A6FB400A18AC1 /* TMXMap.h */,
+				CF35FBBD158A6FBA00A18AC1 /* TMXMap.cpp */,
+				CF35FBBF158A6FCB00A18AC1 /* TMXTileSet.h */,
+				CF35FBC0158A6FD500A18AC1 /* TMXTileSet.cpp */,
+				CF35FBC2158A6FDF00A18AC1 /* TMXLayer.h */,
+				CF35FBC3158A6FE600A18AC1 /* TMXLayer.cpp */,
+				CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */,
+			);
+			path = LoaderTMXFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFD4A8CA158A5BA300E37DC8 /* LoaderTMXFiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFD4A8D5158A5BA300E37DC8 /* Build configuration list for PBXNativeTarget "LoaderTMXFiles" */;
+			buildPhases = (
+				CFD4A8C7158A5BA300E37DC8 /* Sources */,
+				CFD4A8C8158A5BA300E37DC8 /* Frameworks */,
+				CFD4A8C9158A5BA300E37DC8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoaderTMXFiles;
+			productName = LoaderTMXFiles;
+			productReference = CFD4A8CB158A5BA300E37DC8 /* LoaderTMXFiles */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFD4A8C2158A5BA300E37DC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CFD4A8C5158A5BA300E37DC8 /* Build configuration list for PBXProject "LoaderTMXFiles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CFD4A8C0158A5BA300E37DC8;
+			productRefGroup = CFD4A8CC158A5BA300E37DC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFD4A8CA158A5BA300E37DC8 /* LoaderTMXFiles */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFD4A8C7158A5BA300E37DC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD4A8D0158A5BA300E37DC8 /* main.cpp in Sources */,
+				CF35FBBB158A6FA900A18AC1 /* TMXLoader.cpp in Sources */,
+				CF35FBBE158A6FBA00A18AC1 /* TMXMap.cpp in Sources */,
+				CF35FBC1158A6FD500A18AC1 /* TMXTileSet.cpp in Sources */,
+				CF35FBC4158A6FE600A18AC1 /* TMXLayer.cpp in Sources */,
+				CF35FBC9158A6FF600A18AC1 /* tinyxml.cpp in Sources */,
+				CF35FBCA158A6FF600A18AC1 /* tinyxmlerror.cpp in Sources */,
+				CF35FBCB158A6FF600A18AC1 /* tinyxmlparser.cpp in Sources */,
+				CF35FBCE158A708100A18AC1 /* tinystr.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CFD4A8D3158A5BA300E37DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CFD4A8D4158A5BA300E37DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CFD4A8D6158A5BA300E37DC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CFD4A8D7158A5BA300E37DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFD4A8C5158A5BA300E37DC8 /* Build configuration list for PBXProject "LoaderTMXFiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD4A8D3158A5BA300E37DC8 /* Debug */,
+				CFD4A8D4158A5BA300E37DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFD4A8D5158A5BA300E37DC8 /* Build configuration list for PBXNativeTarget "LoaderTMXFiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD4A8D6158A5BA300E37DC8 /* Debug */,
+				CFD4A8D7158A5BA300E37DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFD4A8C2158A5BA300E37DC8 /* Project object */;
+}
