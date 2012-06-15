@@ -15,14 +15,17 @@
 
 void error(std::string message);
 
-class InternalLoader 
+class TMXLoader 
 {
 public:
-	InternalLoader(std::string filename = "");	
-	void LoadFromFile(std::string filename);
-	TMXMap* m_map;
+	TMXLoader();	
+	bool LoadFromFile(std::string filename);
+    TMXMap getTMXMap();
+	
 	
 private:
+    
+    TMXMap* m_map;
 	void readMap(TiXmlNode* node);
 	TMXTileSet* readTileSet(TiXmlNode* node);
 	const char* readImage(TiXmlNode* node);

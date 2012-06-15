@@ -8,10 +8,9 @@
 
 #include "TMXLoader.h"
 
-
 #define _LOG_
-#ifdef _LOG_
 #include <iostream>
+#ifdef _LOG_
 #define PRINT(...) printf(__VA_ARGS__)
 #else
 #define PRINT(...)
@@ -23,31 +22,33 @@ void error(std::string message)
 }
 
 
-InternalLoader::InternalLoader(std::string filename)
+TMXLoader::TMXLoader()
 : m_map(NULL)
-{
-	if(filename != "")
-	{
-		LoadFromFile(filename);
-	}
-}
+{}
 
-void InternalLoader::LoadFromFile(std::string filename)
+bool TMXLoader::LoadFromFile(std::string filename)
 {
 	TiXmlDocument doc(filename.c_str());
 	if(!doc.LoadFile())
 	{
 		error("TMX::Loader couldn't open file :" + filename);
-		return;
+		return false;
 	}
 	
 	// create handle for reading XML node
 	TiXmlHandle hdl(&doc);
 	readMap(hdl.FirstChildElement("map").ToNode());
 	PRINT("Reading complete!\n");
+    
+    return true;
 }
 
-void InternalLoader::readMap(TiXmlNode* node)
+TMXMap TMXLoader::getTMXMap()
+{
+    return *m_map;
+}
+
+void TMXLoader::readMap(TiXmlNode* node)
 {
 	PRINT("Reading Map\n");
 	
@@ -89,7 +90,7 @@ void InternalLoader::readMap(TiXmlNode* node)
 	}
 }
 
-TMXTileSet* InternalLoader::readTileSet(TiXmlNode* node)
+TMXTileSet* TMXLoader::readTileSet(TiXmlNode* node)
 {
 	PRINT("Reading Tileset\n");
 	
@@ -123,14 +124,14 @@ TMXTileSet* InternalLoader::readTileSet(TiXmlNode* node)
 	return tileset;
 }
 
-const char* InternalLoader::readImage(TiXmlNode* node)
+const char* TMXLoader::readImage(TiXmlNode* node)
 {
 	PRINT("Reading Image\n");
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	return  pElement->Attribute("source");
 }
 
-TMXLayer* InternalLoader::readLayer(TiXmlNode* node)
+TMXLayer* TMXLoader::readLayer(TiXmlNode* node)
 {
 	PRINT("Reading Layer\n");
 	TMXLayer* layer = new TMXLayer;
@@ -159,7 +160,7 @@ TMXLayer* InternalLoader::readLayer(TiXmlNode* node)
 	return layer;
 }
 
-void InternalLoader::readData(TiXmlNode* node, std::vector<int>& data)
+void TMXLoader::readData(TiXmlNode* node, std::vector<int>& data)
 {
 	PRINT("Reading Data:");
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
@@ -185,7 +186,7 @@ void InternalLoader::readData(TiXmlNode* node, std::vector<int>& data)
 	}
 }
 
-void InternalLoader::readXML(TiXmlNode* node,std::vector<int>& data)
+void TMXLoader::readXML(TiXmlNode* node,std::vector<int>& data)
 {
 	PRINT("XML format\n");
 	// il n'y a pas d'attribut donc on passe directement ici.
@@ -202,10 +203,10 @@ void InternalLoader::readXML(TiXmlNode* node,std::vector<int>& data)
 			}
 		}
 	}
-	PRINT(" end data\n%d tiles read",(int)data.size());
+	PRINT(" end data\n%d tiles read\n",(int)data.size());
 }
 
-void InternalLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
+void TMXLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
 {
 	PRINT("CSV format\n");
 	
@@ -233,7 +234,7 @@ void InternalLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
 	PRINT(" end data\n%d tiles read",(int)data.size());
 }
 
-void InternalLoader::decodeblock( unsigned char* in, unsigned char* out ) //in must contain 4 char, out must contain 3 char
+void TMXLoader::decodeblock( unsigned char* in, unsigned char* out ) //in must contain 4 char, out must contain 3 char
 {
 	const char cd64[]="|$$$}rstuvwxyz{$$$$$$$>?@ABCDEFGHIJKLMNOPQRSTUVW$$$$$$XYZ[\\]^_`abcdefghijklmnopq";
 	int len = 0;
@@ -267,7 +268,7 @@ void InternalLoader::decodeblock( unsigned char* in, unsigned char* out ) //in m
 	}
 }
 
-void InternalLoader::readBase64(TiXmlNode* node,const char* compression,std::vector<int>& data)
+void TMXLoader::readBase64(TiXmlNode* node,const char* compression,std::vector<int>& data)
 {
 	PRINT("Base format, compression %s\n", compression);
 	if(compression!=NULL)
