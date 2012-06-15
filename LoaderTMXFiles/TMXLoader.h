@@ -13,6 +13,7 @@
 #include "TMXMap.h"
 #include "tinyxml.h"
 
+void error(std::string message);
 
 class InternalLoader 
 {
