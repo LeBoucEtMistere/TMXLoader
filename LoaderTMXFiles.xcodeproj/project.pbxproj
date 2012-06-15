@@ -15,6 +15,9 @@
 		CF35FBCA158A6FF600A18AC1 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC7158A6FF600A18AC1 /* tinyxmlerror.cpp */; };
 		CF35FBCB158A6FF600A18AC1 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */; };
 		CF35FBCE158A708100A18AC1 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBCC158A708100A18AC1 /* tinystr.cpp */; };
+		CFD2CF55158B708F00719491 /* TMXObjectGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD2CF54158B708F00719491 /* TMXObjectGroup.cpp */; };
+		CFD2CF58158B718C00719491 /* TMXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD2CF57158B718C00719491 /* TMXObject.cpp */; };
+		CFD2CF5B158B727100719491 /* TMXPolyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD2CF5A158B727100719491 /* TMXPolyObject.cpp */; };
 		CFD4A8D0158A5BA300E37DC8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD4A8CF158A5BA300E37DC8 /* main.cpp */; };
 		CFD4A8D2158A5BA300E37DC8 /* LoaderTMXFiles.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */; };
 /* End PBXBuildFile section */
@@ -47,6 +50,12 @@
 		CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		CF35FBCC158A708100A18AC1 /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
 		CF35FBCD158A708100A18AC1 /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		CFD2CF52158B708500719491 /* TMXObjectGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXObjectGroup.h; sourceTree = "<group>"; };
+		CFD2CF54158B708F00719491 /* TMXObjectGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXObjectGroup.cpp; sourceTree = "<group>"; };
+		CFD2CF56158B718300719491 /* TMXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXObject.h; sourceTree = "<group>"; };
+		CFD2CF57158B718C00719491 /* TMXObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXObject.cpp; sourceTree = "<group>"; };
+		CFD2CF59158B726600719491 /* TMXPolyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXPolyObject.h; sourceTree = "<group>"; };
+		CFD2CF5A158B727100719491 /* TMXPolyObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXPolyObject.cpp; sourceTree = "<group>"; };
 		CFD4A8CB158A5BA300E37DC8 /* LoaderTMXFiles */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LoaderTMXFiles; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD4A8CF158A5BA300E37DC8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = LoaderTMXFiles.1; sourceTree = "<group>"; };
@@ -97,6 +106,12 @@
 				CF35FBC0158A6FD500A18AC1 /* TMXTileSet.cpp */,
 				CF35FBC2158A6FDF00A18AC1 /* TMXLayer.h */,
 				CF35FBC3158A6FE600A18AC1 /* TMXLayer.cpp */,
+				CFD2CF52158B708500719491 /* TMXObjectGroup.h */,
+				CFD2CF54158B708F00719491 /* TMXObjectGroup.cpp */,
+				CFD2CF56158B718300719491 /* TMXObject.h */,
+				CFD2CF57158B718C00719491 /* TMXObject.cpp */,
+				CFD2CF59158B726600719491 /* TMXPolyObject.h */,
+				CFD2CF5A158B727100719491 /* TMXPolyObject.cpp */,
 				CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */,
 			);
 			path = LoaderTMXFiles;
@@ -161,6 +176,9 @@
 				CF35FBCA158A6FF600A18AC1 /* tinyxmlerror.cpp in Sources */,
 				CF35FBCB158A6FF600A18AC1 /* tinyxmlparser.cpp in Sources */,
 				CF35FBCE158A708100A18AC1 /* tinystr.cpp in Sources */,
+				CFD2CF55158B708F00719491 /* TMXObjectGroup.cpp in Sources */,
+				CFD2CF58158B718C00719491 /* TMXObject.cpp in Sources */,
+				CFD2CF5B158B727100719491 /* TMXPolyObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

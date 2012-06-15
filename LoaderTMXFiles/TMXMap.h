@@ -13,6 +13,9 @@
 #include <algorithm>
 #include "TMXTileSet.h"
 #include "TMXLayer.h"
+#include "TMXObjectGroup.h"
+#include "TMXObject.h"
+#include "TMXPolyObject.h"
 
 class TMXMap
 {
