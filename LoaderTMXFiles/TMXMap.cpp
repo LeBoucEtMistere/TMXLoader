@@ -30,4 +30,5 @@ TMXMap::~TMXMap()
 {
 	std::for_each(layers.begin()     , layers.end()     , Delete());
 	std::for_each(tilesets.begin()   , tilesets.end()   , Delete());
+    std::for_each(objectGroups.begin()   , objectGroups.end()   , Delete());
 }

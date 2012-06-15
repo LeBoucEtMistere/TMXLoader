@@ -8,8 +8,20 @@
 
 #include "TMXObjectGroup.h"
 
+struct Delete 
+{ 
+	template <class T> void operator ()(T*& p) const 
+	{ 
+		delete p;
+		p = NULL;
+	} 
+};
+
 TMXObjectGroup::TMXObjectGroup() :  name(""), width(0), height(0)
 {}
 
 TMXObjectGroup::~TMXObjectGroup()
-{}
+{
+    std::for_each(objects.begin()     , objects.end()     , Delete());
+	std::for_each(polyObjects.begin()   , polyObjects.end()   , Delete());
+}

@@ -14,8 +14,7 @@
 #include "TMXTileSet.h"
 #include "TMXLayer.h"
 #include "TMXObjectGroup.h"
-#include "TMXObject.h"
-#include "TMXPolyObject.h"
+
 
 class TMXMap
 {
@@ -29,6 +28,7 @@ public:
 	int tileHeight;
 	std::vector<TMXTileSet*> tilesets;
 	std::vector<TMXLayer*>   layers;
+    std::vector<TMXObjectGroup*> objectGroups;
 };
 
 #endif
