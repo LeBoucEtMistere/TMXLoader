@@ -16,6 +16,28 @@
 #define PRINT(...)
 #endif
 
+#include <string>
+#include <sstream>
+#include <iostream>
+
+template <class T>
+bool from_string(T& t, 
+                 const std::string& s, 
+                 std::ios_base& (*f)(std::ios_base&))
+{
+    std::istringstream iss(s);
+    return !(iss >> f >> t).fail();
+}
+
+struct PrintPolyPoints 
+{ 
+	void operator ()(std::vector<std::pair<int,int> >::iterator& p) const 
+	{ 
+        PRINT("%d,%d ",p->first, p->second);		
+	} 
+};
+
+
 void error(std::string message)
 {
 	std::cerr<< "Error:" << message << std::endl;
@@ -86,6 +108,10 @@ void TMXLoader::readMap(TiXmlNode* node)
 			{
 				m_map->layers.push_back(readLayer(pChild));
 			}
+            else if (std::string(pChild->Value()) == "objectgroup")
+            {
+                m_map->objectGroups.push_back(readObjectGroup(pChild));
+            }
 		}
 	}
 }
@@ -295,5 +321,140 @@ void TMXLoader::readBase64(TiXmlNode* node,const char* compression,std::vector<i
 		PRINT(" end data\n%d tiles read",(int)data.size());
 		free(output_text);
 	}
+}
+
+TMXObjectGroup* TMXLoader::readObjectGroup(TiXmlNode *node)
+{
+    PRINT("Reading ObjectGroup\n");
+	TMXObjectGroup* objGroup = new TMXObjectGroup;
+	objGroup->objects.reserve(m_map->width*m_map->height);
+    objGroup->polyObjects.reserve(m_map->width*m_map->height);
+	TiXmlElement* pElement = node->ToElement(); //on le converti en element
+	
+	objGroup->name = pElement->Attribute("name");
+	PRINT("name %s\n",objGroup->name.c_str());
+	pElement->QueryIntAttribute("width",&(objGroup->width));
+	PRINT("width %d\n",objGroup->width);
+	pElement->QueryIntAttribute("height",&(objGroup->height));
+	PRINT("height %d\n",objGroup->height);
+	
+	// et enfin on regarde toutes les balises enfant
+	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
+	{
+		
+		if ( pChild->Type() == TiXmlNode::TINYXML_ELEMENT)
+		{
+			if( std::string(pChild->Value()) == "object")
+			{ 
+                if (!pChild->FirstChild("polygon")) 
+                {
+                    readObject(pChild, objGroup->objects);
+                }
+                else
+                {
+                    readPolyObject(pChild, objGroup->polyObjects);
+                }
+			}
+		}
+	}
+	return objGroup;
+}
+
+void TMXLoader::readObject (TiXmlNode* node, std::vector<TMXObject*> &objects)
+{
+    TMXObject* obj = new TMXObject;
+    TiXmlElement* pElement = node->ToElement();
+    
+    obj->name = pElement->Attribute("name");
+    obj->type = pElement->Attribute("type");
+    pElement->QueryIntAttribute("x",&(obj->posX));
+    pElement->QueryIntAttribute("y",&(obj->posY));
+    pElement->QueryIntAttribute("width",&(obj->width));
+    pElement->QueryIntAttribute("height",&(obj->height));
+    
+    objects.push_back(obj);
+    
+    PRINT("Object added\n");
+    PRINT("name : %s \n",obj->name.c_str());
+    PRINT("type : %s \n",obj->type.c_str());
+    PRINT("coordonnées : %d; %d\n", obj->posX, obj->posY);
+    PRINT("width %d\n",obj->width);
+    PRINT("height %d\n",obj->height);
+    
+	
+
+
+}
+void TMXLoader::readPolyObject (TiXmlNode* node, std::vector<TMXPolyObject*> &polyObjects)
+{
+    TMXPolyObject* obj = new TMXPolyObject;
+    TiXmlElement* pElement = node->ToElement();
+    
+    obj->name = pElement->Attribute("name");
+    obj->type = pElement->Attribute("type");
+    pElement->QueryIntAttribute("x",&(obj->posX));
+    pElement->QueryIntAttribute("y",&(obj->posY));
+    
+    
+    TiXmlNode* pChild = node->FirstChild();
+    pElement = pChild->ToElement();
+    
+    std::string points = pElement->Attribute("points");
+    const char* pointschar = points.c_str();
+    int p1 = 0;
+    int p2 = 0;
+    std::string s1("");
+    std::string s2("");
+    
+    for (const char* ptr = pointschar; *ptr != '\0'; ++ptr) 
+    {
+        while (*ptr != ',') 
+        {
+            s1 += *ptr;
+            ++ptr;
+        }
+        ++ptr;
+        while (*ptr != ' ' && *ptr != '\0') 
+        {
+            s2 += *ptr;
+            ++ptr;
+        }
+        
+        
+        if(from_string<int>(p1, s1, std::dec) && from_string<int>(p2, s2, std::dec)) //convert the strings to int in 
+                                                                                     //order to make a pair of int
+        {
+            std::pair<int, int> pair (p1,p2);
+            obj->points.push_back(pair);
+            s1.clear();
+            s2.clear();
+            p1=0;
+            p2=0;
+        }
+        else
+        {
+            error(std::string("Can't read the polygons points data in the object \""+obj->name+"\""));
+        }
+        
+    }
+    
+    
+    
+    polyObjects.push_back(obj);
+    
+    PRINT("Object added\n");
+    PRINT("name : %s \n",obj->name.c_str());
+    PRINT("type : %s \n",obj->type.c_str());
+    PRINT("coordonnées : %d; %d\n", obj->posX, obj->posY);
+    PRINT("poly points : ");
+    for (std::vector<std::pair<int,int> >::iterator it = obj->points.begin(); it!=obj->points.end(); it++) 
+    {
+        PRINT("%d,%d ",it->first, it->second);
+    }
+    PRINT("\n");
+    //std::for_each(obj->points.begin(), obj->points.end(),PrintPolyPoints());
+    
+
+
 }
 

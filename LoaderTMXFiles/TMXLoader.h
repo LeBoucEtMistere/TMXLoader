@@ -10,6 +10,8 @@
 #define LoaderTMXFiles_TMXLoader_h
 
 #include <string>
+#include <utility>
+#include <algorithm>
 #include "TMXMap.h"
 #include "tinyxml.h"
 
@@ -35,6 +37,9 @@ private:
 	void readCSV(TiXmlNode* node,std::vector<int>& data);
 	void decodeblock( unsigned char* in, unsigned char* out );
 	void readBase64(TiXmlNode* node,const char* compression,std::vector<int>& data);
+    TMXObjectGroup* readObjectGroup(TiXmlNode* node);
+    void readObject (TiXmlNode* node, std::vector<TMXObject*> &objects);
+    void readPolyObject (TiXmlNode* node, std::vector<TMXPolyObject*> &polyObjects);
 };
 
 #endif
