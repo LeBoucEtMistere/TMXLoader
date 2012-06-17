@@ -9,6 +9,18 @@
 #ifndef LoaderTMXFiles_TMXProperties_h
 #define LoaderTMXFiles_TMXProperties_h
 
+#include <map>
+#include <string>
 
+
+class TMXProperties
+{
+public:
+    TMXProperties();
+    ~TMXProperties();
+    
+    std::multimap<std::string,std::string> properties;
+    
+};
 
 #endif

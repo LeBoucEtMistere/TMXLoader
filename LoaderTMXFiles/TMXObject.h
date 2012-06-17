@@ -9,6 +9,8 @@
 #ifndef LoaderTMXFiles_TMXObject_h
 #define LoaderTMXFiles_TMXObject_h
 
+#include "TMXProperties.h"
+class TMXProperties;
 #include <string>
 
 class TMXObject
@@ -23,6 +25,8 @@ public:
     int posY;
     int width;
     int height;
+    TMXProperties properties;
+
 };
 
 #endif

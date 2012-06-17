@@ -6,4 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <iostream>
+#include "TMXProperties.h"
+
+TMXProperties::TMXProperties() : properties()
+{
+}
+
+TMXProperties::~TMXProperties()
+{
+}

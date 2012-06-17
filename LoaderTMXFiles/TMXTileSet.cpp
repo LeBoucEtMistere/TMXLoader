@@ -8,7 +8,7 @@
 
 #include "TMXTileSet.h"
 
-TMXTileSet::TMXTileSet() : firtGlobalID(0), name(""), sourceFileName(""), tileWidth(0), tileHeight(0), spacing(0), margin(0)
+TMXTileSet::TMXTileSet() : firtGlobalID(0), name(""), sourceFileName(""), tileWidth(0), tileHeight(0), spacing(0), margin(0), properties()
 {}
 
 TMXTileSet::~TMXTileSet()

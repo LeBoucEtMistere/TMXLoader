@@ -8,7 +8,7 @@
 
 #include "TMXPolyObject.h"
 
-TMXPolyObject::TMXPolyObject() :  name(""), type(""), posX(0), posY(0), points()
+TMXPolyObject::TMXPolyObject() :  TMXObject(), points()
 {}
 
 TMXPolyObject::~TMXPolyObject()

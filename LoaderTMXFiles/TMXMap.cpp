@@ -24,6 +24,7 @@ TMXMap::TMXMap()
 , tileHeight(0)
 , tilesets()
 , layers()
+,properties()
 {}
 
 TMXMap::~TMXMap()

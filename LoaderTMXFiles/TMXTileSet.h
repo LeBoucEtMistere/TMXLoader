@@ -10,6 +10,8 @@
 #define LoaderTMXFiles_TMXTileSet_h
 
 #include <string>
+#include "TMXProperties.h"
+class TMXProperties;
 
 class TMXTileSet
 {
@@ -24,6 +26,7 @@ public:
 	int tileHeight;
 	int spacing;
 	int margin;
+    TMXProperties properties;
 };
 
 #endif

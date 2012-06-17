@@ -11,6 +11,8 @@
 
 #include <string>
 #include <vector>
+#include "TMXProperties.h"
+class TMXProperties;
 
 class TMXLayer
 {
@@ -21,6 +23,8 @@ public:
 	float opacity;
 	int  visible;
 	std::vector<int> data;
+    TMXProperties properties;
+
 };
 
 #endif

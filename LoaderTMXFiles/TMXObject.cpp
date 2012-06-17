@@ -8,7 +8,7 @@
 
 #include "TMXObject.h"
 
-TMXObject::TMXObject() :  name(""), type(""), posX(0), posY(0), width(0), height(0)
+TMXObject::TMXObject() :  name(""), type(""), posX(0), posY(0), width(0), height(0), properties()
 {}
 
 TMXObject::~TMXObject()
