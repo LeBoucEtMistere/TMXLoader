@@ -15,3 +15,4 @@ TMXProperties::TMXProperties() : properties()
 TMXProperties::~TMXProperties()
 {
 }
+

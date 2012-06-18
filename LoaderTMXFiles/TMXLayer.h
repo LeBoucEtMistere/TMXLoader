@@ -23,7 +23,7 @@ public:
 	float opacity;
 	int  visible;
 	std::vector<int> data;
-    TMXProperties properties;
+    TMXProperties* properties;
 
 };
 

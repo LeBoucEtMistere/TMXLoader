@@ -29,7 +29,9 @@ private:
     
     TMXMap* m_map;
 	void readMap(TiXmlNode* node);
+    TMXProperties* readProperties(TiXmlNode* node);
 	TMXTileSet* readTileSet(TiXmlNode* node);
+    void readTileInTileset(TiXmlNode* node, std::map<int,TMXProperties*> map);
 	const char* readImage(TiXmlNode* node);
 	TMXLayer* readLayer(TiXmlNode* node);
 	void readData(TiXmlNode* node, std::vector<int>& data);

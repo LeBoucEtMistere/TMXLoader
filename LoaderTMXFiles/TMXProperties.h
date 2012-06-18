@@ -19,8 +19,8 @@ public:
     TMXProperties();
     ~TMXProperties();
     
-    std::multimap<std::string,std::string> properties;
-    
+    std::map<std::string,std::string> properties;
+        
 };
 
 #endif

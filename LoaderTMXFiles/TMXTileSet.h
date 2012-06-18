@@ -10,6 +10,7 @@
 #define LoaderTMXFiles_TMXTileSet_h
 
 #include <string>
+#include <map>
 #include "TMXProperties.h"
 class TMXProperties;
 
@@ -26,7 +27,7 @@ public:
 	int tileHeight;
 	int spacing;
 	int margin;
-    TMXProperties properties;
+    std::map<int,TMXProperties*> properties;
 };
 
 #endif

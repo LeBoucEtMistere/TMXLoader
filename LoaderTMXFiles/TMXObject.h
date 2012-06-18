@@ -25,7 +25,7 @@ public:
     int posY;
     int width;
     int height;
-    TMXProperties properties;
+    TMXProperties* properties;
 
 };
 

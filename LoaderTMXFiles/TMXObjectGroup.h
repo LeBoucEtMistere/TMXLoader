@@ -27,7 +27,7 @@ public:
     int height;
     std::vector<TMXObject*> objects;
     std::vector<TMXPolyObject*> polyObjects;
-    TMXProperties properties;
+    TMXProperties* properties;
 
   
 };

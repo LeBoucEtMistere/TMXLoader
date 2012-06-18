@@ -33,7 +33,7 @@ public:
 	std::vector<TMXTileSet*> tilesets;
 	std::vector<TMXLayer*>   layers;
     std::vector<TMXObjectGroup*> objectGroups;
-    TMXProperties properties;
+    TMXProperties* properties;
 };
 
 #endif
