@@ -1,24 +1,24 @@
 //
-//  TMXPolyObject.h
+//  TMXPolyLine.h
 //  LoaderTMXFiles
 //
-//  Created by DEPASSE Arthur on 15/06/12.
+//  Created by DEPASSE Arthur on 18/06/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef LoaderTMXFiles_TMXPolyObject_h
-#define LoaderTMXFiles_TMXPolyObject_h
+#ifndef LoaderTMXFiles_TMXPolyLine_h
+#define LoaderTMXFiles_TMXPolyLine_h
 
 #include "TMXObject.h"
 #include <vector>
 #include <utility>
 
-class TMXPolyObject : public TMXObject
+class TMXPolyLine : public TMXObject
 {
 public:
-    TMXPolyObject();
-    ~TMXPolyObject();
-
+    TMXPolyLine();
+    ~TMXPolyLine();
+    
     std::vector<std::pair<int,int> > points;
     
 };

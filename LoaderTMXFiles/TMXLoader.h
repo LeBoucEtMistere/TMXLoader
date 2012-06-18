@@ -42,6 +42,7 @@ private:
     TMXObjectGroup* readObjectGroup(TiXmlNode* node);
     void readObject (TiXmlNode* node, std::vector<TMXObject*> &objects);
     void readPolyObject (TiXmlNode* node, std::vector<TMXPolyObject*> &polyObjects);
+    void readPolyLine (TiXmlNode* node, std::vector<TMXPolyLine*> &polyLines);
 };
 
 #endif

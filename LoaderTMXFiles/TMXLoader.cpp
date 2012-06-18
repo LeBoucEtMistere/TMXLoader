@@ -407,13 +407,18 @@ TMXObjectGroup* TMXLoader::readObjectGroup(TiXmlNode *node)
 		{
 			if( std::string(pChild->Value()) == "object")
 			{ 
-                if (!pChild->FirstChild("polygon")) 
+                if (pChild->FirstChild("polygon")) 
                 {
-                    readObject(pChild, objGroup->objects);
+                    readPolyObject(pChild, objGroup->polyObjects);
+                }
+                else if (pChild->FirstChild("polyline"))
+                {
+                    readPolyLine(pChild, objGroup->polyLines);          
                 }
                 else
                 {
-                    readPolyObject(pChild, objGroup->polyObjects);
+                    readObject(pChild, objGroup->objects);
+
                 }
 			}
             else if (std::string(pChild->Value()) == "properties") 
@@ -530,7 +535,7 @@ void TMXLoader::readPolyObject (TiXmlNode* node, std::vector<TMXPolyObject*> &po
                     
                 }
                 
-                PRINT("poly points : ");
+                PRINT("polygon points : ");
                 for (std::vector<std::pair<int,int> >::iterator it = obj->points.begin(); it!=obj->points.end(); it++) 
                 {
                     PRINT("%d,%d ",it->first, it->second);
@@ -540,23 +545,90 @@ void TMXLoader::readPolyObject (TiXmlNode* node, std::vector<TMXPolyObject*> &po
 
             }
 		}
-       
-            
-		
 	}
     
-        
-    
-    
-    
-    
-    
-    
-
-    
     polyObjects.push_back(obj);
+
+}
+
+void TMXLoader::readPolyLine(TiXmlNode *node, std::vector<TMXPolyLine *> &polyLines)
+{
+    TMXPolyLine* obj = new TMXPolyLine;
+    TiXmlElement* pElement = node->ToElement();
     
-
-
+    obj->name = pElement->Attribute("name");
+    obj->type = pElement->Attribute("type");
+    pElement->QueryIntAttribute("x",&(obj->posX));
+    pElement->QueryIntAttribute("y",&(obj->posY));
+    PRINT("Object added\n");
+    PRINT("name : %s \n",obj->name.c_str());
+    PRINT("type : %s \n",obj->type.c_str());
+    PRINT("coordonnées : %d; %d\n", obj->posX, obj->posY);
+    
+    
+    for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
+	{
+		
+		if ( pChild->Type() == TiXmlNode::TINYXML_ELEMENT)
+		{
+            if (std::string(pChild->Value()) == "properties") 
+            {
+                obj->properties=readProperties(pChild);
+            }
+            else if (std::string(pChild->Value()) == "polyline") 
+            {
+                pElement = pChild->ToElement();
+                std::string points = pElement->Attribute("points");
+                const char* pointschar = points.c_str();
+                int p1 = 0;
+                int p2 = 0;
+                std::string s1("");
+                std::string s2("");
+                
+                for (const char* ptr = pointschar; *ptr != '\0'; ++ptr) 
+                {
+                    while (*ptr != ',') 
+                    {
+                        s1 += *ptr;
+                        ++ptr;
+                    }
+                    ++ptr;
+                    while (*ptr != ' ' && *ptr != '\0') 
+                    {
+                        s2 += *ptr;
+                        ++ptr;
+                    }
+                    
+                    
+                    if(from_string<int>(p1, s1, std::dec) && from_string<int>(p2, s2, std::dec)) //convert the strings to int in 
+                        //order to make a pair of int
+                    {
+                        std::pair<int, int> pair (p1,p2);
+                        obj->points.push_back(pair);
+                        s1.clear();
+                        s2.clear();
+                        p1=0;
+                        p2=0;
+                    }
+                    else
+                    {
+                        error(std::string("Can't read the polyline points data in the object \""+obj->name+"\""));
+                    }
+                    
+                }
+                
+                PRINT("polyline points : ");
+                for (std::vector<std::pair<int,int> >::iterator it = obj->points.begin(); it!=obj->points.end(); it++) 
+                {
+                    PRINT("%d,%d ",it->first, it->second);
+                }
+                PRINT("\n");
+                //std::for_each(obj->points.begin(), obj->points.end(),PrintPolyPoints());
+                
+            }
+		}
+	}
+    
+    polyLines.push_back(obj);
 }
 

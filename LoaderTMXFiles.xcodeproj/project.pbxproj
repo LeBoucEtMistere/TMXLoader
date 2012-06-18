@@ -15,6 +15,7 @@
 		CF35FBCA158A6FF600A18AC1 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC7158A6FF600A18AC1 /* tinyxmlerror.cpp */; };
 		CF35FBCB158A6FF600A18AC1 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */; };
 		CF35FBCE158A708100A18AC1 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF35FBCC158A708100A18AC1 /* tinystr.cpp */; };
+		CF41D7ED158FBCEB00557FFC /* TMXPolyLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF41D7EC158FBCEB00557FFC /* TMXPolyLine.cpp */; };
 		CF79B718158CB2A700E5EDBC /* TMXProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF79B717158CB2A700E5EDBC /* TMXProperties.cpp */; };
 		CFD2CF55158B708F00719491 /* TMXObjectGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD2CF54158B708F00719491 /* TMXObjectGroup.cpp */; };
 		CFD2CF58158B718C00719491 /* TMXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD2CF57158B718C00719491 /* TMXObject.cpp */; };
@@ -51,6 +52,8 @@
 		CF35FBC8158A6FF600A18AC1 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		CF35FBCC158A708100A18AC1 /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
 		CF35FBCD158A708100A18AC1 /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		CF41D7EA158FBCE300557FFC /* TMXPolyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXPolyLine.h; sourceTree = "<group>"; };
+		CF41D7EC158FBCEB00557FFC /* TMXPolyLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXPolyLine.cpp; sourceTree = "<group>"; };
 		CF79B716158CB29E00E5EDBC /* TMXProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXProperties.h; sourceTree = "<group>"; };
 		CF79B717158CB2A700E5EDBC /* TMXProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMXProperties.cpp; sourceTree = "<group>"; };
 		CFD2CF52158B708500719491 /* TMXObjectGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMXObjectGroup.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				CFD2CF57158B718C00719491 /* TMXObject.cpp */,
 				CFD2CF59158B726600719491 /* TMXPolyObject.h */,
 				CFD2CF5A158B727100719491 /* TMXPolyObject.cpp */,
+				CF41D7EA158FBCE300557FFC /* TMXPolyLine.h */,
+				CF41D7EC158FBCEB00557FFC /* TMXPolyLine.cpp */,
 				CFD4A8D1158A5BA300E37DC8 /* LoaderTMXFiles.1 */,
 			);
 			path = LoaderTMXFiles;
@@ -185,6 +190,7 @@
 				CFD2CF58158B718C00719491 /* TMXObject.cpp in Sources */,
 				CFD2CF5B158B727100719491 /* TMXPolyObject.cpp in Sources */,
 				CF79B718158CB2A700E5EDBC /* TMXProperties.cpp in Sources */,
+				CF41D7ED158FBCEB00557FFC /* TMXPolyLine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

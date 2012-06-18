@@ -14,6 +14,7 @@
 #include <algorithm>
 #include "TMXObject.h"
 #include "TMXPolyObject.h"
+#include "TMXPolyLine.h"
 #include "TMXProperties.h"
 class TMXProperties;
 
@@ -27,6 +28,7 @@ public:
     int height;
     std::vector<TMXObject*> objects;
     std::vector<TMXPolyObject*> polyObjects;
+    std::vector<TMXPolyLine*> polyLines;
     TMXProperties* properties;
 
   
