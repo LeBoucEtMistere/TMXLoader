@@ -82,9 +82,18 @@ void TMXLoader::readMap(TiXmlNode* node)
 		error("Support only version 1.0 of tmx files.");
 	else PRINT("TMX Version 1.0\n");
 	
-	if(std::string(pElement->Attribute("orientation")) != "orthogonal")
-		error("Support only orthogonal orientation for now.");
-	else   PRINT("Orientation orthogonal\n");
+	if(std::string(pElement->Attribute("orientation")) == "orthogonal")
+    {
+        PRINT("Orientation orthogonal\n");
+        m_map->orientation = pElement->Attribute("orientation");
+    }
+    else if (std::string(pElement->Attribute("orientation")) == "isometric")
+    {
+        PRINT("Orientation isometric\n");
+        m_map->orientation = pElement->Attribute("orientation");
+    }
+    else error("Support only orthogonal or isometric orientation for now.");
+	   
 	
 	pElement->QueryIntAttribute("width",&(m_map->width));
 	PRINT("Witdh : %d\n",m_map->width);
@@ -102,26 +111,27 @@ void TMXLoader::readMap(TiXmlNode* node)
 		{
             if (std::string(pChild->Value()) == "properties") 
             {
-                m_map->properties=readProperties(pChild);
                 PRINT("\n");
+                m_map->properties=readProperties(pChild);
+                
 
             }
 			else if( std::string(pChild->Value()) == "tileset")
 			{
-				m_map->tilesets.push_back(readTileSet(pChild));
-                PRINT("\n");
+				PRINT("\n");
+                m_map->tilesets.push_back(readTileSet(pChild));
 
 			}
 			else if( std::string(pChild->Value()) == "layer")
 			{
-				m_map->layers.push_back(readLayer(pChild));
-                PRINT("\n");
+				PRINT("\n");
+                m_map->layers.push_back(readLayer(pChild));
 
 			}
             else if (std::string(pChild->Value()) == "objectgroup")
             {
-                m_map->objectGroups.push_back(readObjectGroup(pChild));
                 PRINT("\n");
+                m_map->objectGroups.push_back(readObjectGroup(pChild));
 
             }
 		}

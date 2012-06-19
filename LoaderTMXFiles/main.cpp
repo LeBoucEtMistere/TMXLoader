@@ -13,7 +13,7 @@ int main (int argc, const char * argv[])
 {
 
     TMXLoader loader; //create a loader
-    loader.LoadFromFile("map3.tmx"); //load a .tmx from a file
+    loader.LoadFromFile("mapiso.tmx"); //load a .tmx from a file
     TMXMap map = loader.getTMXMap(); //get a TMXMap object from the loader
     return 0;
 }

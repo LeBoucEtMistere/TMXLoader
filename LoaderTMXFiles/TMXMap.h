@@ -13,6 +13,7 @@ class TMXProperties;
 
 #include <vector>
 #include <algorithm>
+#include <string>
 #include "TMXTileSet.h"
 #include "TMXLayer.h"
 #include "TMXObjectGroup.h"
@@ -28,6 +29,7 @@ public:
 	
 	int width;
 	int height;
+    std::string orientation;
 	int tileWidth;
 	int tileHeight;
 	std::vector<TMXTileSet*> tilesets;

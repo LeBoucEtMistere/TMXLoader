@@ -20,6 +20,7 @@ struct Delete
 TMXMap::TMXMap()
 : width(0)
 , height(0)
+, orientation()
 , tileWidth(0)
 , tileHeight(0)
 , tilesets()
