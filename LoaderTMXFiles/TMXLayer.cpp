@@ -8,7 +8,7 @@
 
 #include "TMXLayer.h"
 
-TMXLayer::TMXLayer() : name(""), opacity(0), visible(0), data(), properties()
+TMXLayer::TMXLayer() : name(""), opacity(0), visible(true), data(), properties()
 {}
 
 TMXLayer::~TMXLayer()

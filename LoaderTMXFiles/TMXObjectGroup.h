@@ -24,8 +24,11 @@ public:
 	TMXObjectGroup();
 	~TMXObjectGroup();
 	std::string name;
+    std::string color;
     int width;
     int height;
+    float opacity;
+    bool visible;
     std::vector<TMXObject*> objects;
     std::vector<TMXPolyObject*> polyObjects;
     std::vector<TMXPolyLine*> polyLines;

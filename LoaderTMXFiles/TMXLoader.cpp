@@ -248,8 +248,12 @@ TMXLayer* TMXLoader::readLayer(TiXmlNode* node)
 	PRINT("name : %s\n",layer->name.c_str());
 	pElement->QueryFloatAttribute("opacity",&(layer->opacity));
 	PRINT("opacity : %f\n",layer->opacity);
-	pElement->QueryIntAttribute("visible",&(layer->visible));
-	PRINT("visible : %d\n",layer->visible);
+	pElement->QueryBoolAttribute("visible", &(layer->visible));
+    if (layer->visible) 
+    {
+        PRINT("visible \n");
+    }
+    else PRINT("invisible \n");
 	
 	// et enfin on regarde toutes les blises enfant
 	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
@@ -418,10 +422,23 @@ TMXObjectGroup* TMXLoader::readObjectGroup(TiXmlNode *node)
 	
 	objGroup->name = pElement->Attribute("name");
 	PRINT("name : %s\n",objGroup->name.c_str());
+    if (pElement->Attribute("color") != NULL) {
+        objGroup->color = pElement->Attribute("color");
+        PRINT("ObjectGroup color : %s\n",objGroup->color.c_str());
+    }
+    else PRINT("ObjectGroup color : default");
 	pElement->QueryIntAttribute("width",&(objGroup->width));
 	PRINT("width : %d\n",objGroup->width);
 	pElement->QueryIntAttribute("height",&(objGroup->height));
 	PRINT("height : %d\n",objGroup->height);
+    pElement->QueryFloatAttribute("opacity",&(objGroup->opacity));
+	PRINT("opacity : %f\n",objGroup->opacity);
+    pElement->QueryBoolAttribute("visible", &(objGroup->visible));
+    if (objGroup->visible) 
+    {
+        PRINT("visible \n");
+    }
+    else PRINT("invisible \n");
 	
 	// et enfin on regarde toutes les balises enfant
 	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 

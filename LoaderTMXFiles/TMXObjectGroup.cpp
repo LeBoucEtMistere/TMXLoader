@@ -17,7 +17,7 @@ struct Delete
 	} 
 };
 
-TMXObjectGroup::TMXObjectGroup() :  name(""), width(0), height(0), properties()
+TMXObjectGroup::TMXObjectGroup() :  name(""), color(""), width(0), height(0), opacity(0), visible(true), properties()
 {}
 
 TMXObjectGroup::~TMXObjectGroup()

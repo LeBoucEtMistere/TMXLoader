@@ -21,7 +21,7 @@ public:
 	~TMXLayer();
 	std::string name;
 	float opacity;
-	int  visible;
+	bool  visible;
 	std::vector<int> data;
     TMXProperties* properties;
 
