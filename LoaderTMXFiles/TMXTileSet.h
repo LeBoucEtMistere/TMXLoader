@@ -23,6 +23,7 @@ public:
 	
 	int firtGlobalID;
 	std::string name;
+    std::string source;
 	TMXImage* image;
 	int tileWidth;
 	int tileHeight;

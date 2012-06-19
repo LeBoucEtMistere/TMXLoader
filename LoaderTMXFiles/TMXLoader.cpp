@@ -174,6 +174,11 @@ TMXTileSet* TMXLoader::readTileSet(TiXmlNode* node)
 	
 	tileset->name = pElement->Attribute("name");
 	PRINT("name : %s\n",tileset->name.c_str());
+    if (pElement->Attribute("source") != NULL) {
+        tileset->source = pElement->Attribute("source");
+        PRINT("external source : %s\n",tileset->source.c_str());
+    }
+    else PRINT("no external source\n");
 	pElement->QueryIntAttribute("firstgid",&(tileset->firtGlobalID));
 	PRINT("firstgid : %d\n",tileset->firtGlobalID);
 	pElement->QueryIntAttribute("tilewidth",&(tileset->tileWidth));
