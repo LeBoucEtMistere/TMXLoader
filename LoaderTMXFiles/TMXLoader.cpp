@@ -490,6 +490,17 @@ void TMXLoader::readObject (TiXmlNode* node, std::vector<TMXObject*> &objects)
     PRINT("coordonnées : %d; %d\n", obj->posX, obj->posY);
     PRINT("width : %d\n",obj->width);
     PRINT("height : %d\n",obj->height);
+    pElement->QueryBoolAttribute("visible", &(obj->visible));
+    if (obj->visible) 
+    {
+        PRINT("visible \n");
+    }
+    else PRINT("invisible \n");
+    if (pElement->Attribute("gid") != NULL) {
+        pElement->QueryIntAttribute("gid", &(obj->gid));
+        PRINT("global id : %d\n",obj->gid);
+    }
+    else PRINT("no global id for this object(optional)\n");
     
     for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
 	{

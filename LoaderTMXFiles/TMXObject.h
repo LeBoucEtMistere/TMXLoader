@@ -25,6 +25,8 @@ public:
     int posY;
     int width;
     int height;
+    int gid;
+    bool visible;
     TMXProperties* properties;
 
 };
