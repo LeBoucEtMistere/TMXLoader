@@ -40,7 +40,7 @@ struct PrintPolyPoints
 
 void error(std::string message)
 {
-	std::cerr<< "Error:" << message << std::endl;
+	std::cerr<< "Error : " << message << std::endl;
 }
 
 
@@ -53,7 +53,7 @@ bool TMXLoader::LoadFromFile(std::string filename)
 	TiXmlDocument doc(filename.c_str());
 	if(!doc.LoadFile())
 	{
-		error("TMX::Loader couldn't open file :" + filename);
+		error("TMX::Loader couldn't open file : " + filename);
 		return false;
 	}
 	
@@ -87,13 +87,13 @@ void TMXLoader::readMap(TiXmlNode* node)
 	else   PRINT("Orientation orthogonal\n");
 	
 	pElement->QueryIntAttribute("width",&(m_map->width));
-	PRINT("Witdh %d\n",m_map->width);
+	PRINT("Witdh : %d\n",m_map->width);
 	pElement->QueryIntAttribute("height",&(m_map->height));
-	PRINT("Height %d\n",m_map->height);
+	PRINT("Height : %d\n",m_map->height);
 	pElement->QueryIntAttribute("tilewidth",&(m_map->tileWidth));
-	PRINT("TileWidth %d\n",m_map->tileWidth);
+	PRINT("TileWidth : %d\n",m_map->tileWidth);
 	pElement->QueryIntAttribute("tileheight",&(m_map->tileHeight));
-	PRINT("TileHeight %d\n",m_map->tileHeight);
+	PRINT("TileHeight : %d\n",m_map->tileHeight);
 	
 	// et enfin on regarde toutes les balises enfant
 	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
@@ -163,17 +163,17 @@ TMXTileSet* TMXLoader::readTileSet(TiXmlNode* node)
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
 	tileset->name = pElement->Attribute("name");
-	PRINT("name %s\n",tileset->name.c_str());
+	PRINT("name : %s\n",tileset->name.c_str());
 	pElement->QueryIntAttribute("firstgid",&(tileset->firtGlobalID));
-	PRINT("firstgid %d\n",tileset->firtGlobalID);
+	PRINT("firstgid : %d\n",tileset->firtGlobalID);
 	pElement->QueryIntAttribute("tilewidth",&(tileset->tileWidth));
-	PRINT("tileWidth %d\n",tileset->tileWidth);
+	PRINT("tileWidth : %d\n",tileset->tileWidth);
 	pElement->QueryIntAttribute("tileheight",&(tileset->tileHeight));
-	PRINT("tileHeight %d\n",tileset->tileHeight);
+	PRINT("tileHeight : %d\n",tileset->tileHeight);
 	pElement->QueryIntAttribute("spacing",&(tileset->spacing));
-	PRINT("spacing %d\n",tileset->spacing);
+	PRINT("spacing : %d\n",tileset->spacing);
 	pElement->QueryIntAttribute("margin",&(tileset->margin));
-	PRINT("margin %d\n",tileset->margin);
+	PRINT("margin : %d\n",tileset->margin);
 	
 	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
 	{
@@ -181,8 +181,7 @@ TMXTileSet* TMXLoader::readTileSet(TiXmlNode* node)
 		{
 			if( std::string(pChild->Value()) == "image")
 			{
-				tileset->sourceFileName = readImage(pChild);
-				PRINT("source %s\n",tileset->sourceFileName.c_str());
+				tileset->image = readImage(pChild);
 			}
             else if (std::string(pChild->Value()) == "tile") 
             {
@@ -206,11 +205,21 @@ void TMXLoader::readTileInTileset(TiXmlNode* node, std::map<int,TMXProperties*> 
     
 }
 
-const char* TMXLoader::readImage(TiXmlNode* node)
+TMXImage* TMXLoader::readImage(TiXmlNode* node)
 {
 	PRINT("Reading Image\n");
+    TMXImage* img = new TMXImage;
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
-	return  pElement->Attribute("source");
+    img->source = pElement->Attribute("source");
+    PRINT("source : %s\n",img->source.c_str());
+    img->trans = pElement->Attribute("trans");
+    PRINT("transparent colour : %s\n",img->trans.c_str());
+    pElement->QueryIntAttribute("width", &(img->width));
+    PRINT("width : %d\n",img->width);
+    pElement->QueryIntAttribute("height", &(img->height));
+    PRINT("height : %d\n",img->height);
+    
+	return img; 
 }
 
 TMXLayer* TMXLoader::readLayer(TiXmlNode* node)
@@ -221,11 +230,11 @@ TMXLayer* TMXLoader::readLayer(TiXmlNode* node)
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
 	layer->name = pElement->Attribute("name");
-	PRINT("name %s\n",layer->name.c_str());
+	PRINT("name : %s\n",layer->name.c_str());
 	pElement->QueryFloatAttribute("opacity",&(layer->opacity));
-	PRINT("opacity %f\n",layer->opacity);
+	PRINT("opacity : %f\n",layer->opacity);
 	pElement->QueryIntAttribute("visible",&(layer->visible));
-	PRINT("visible %d\n",layer->visible);
+	PRINT("visible : %d\n",layer->visible);
 	
 	// et enfin on regarde toutes les blises enfant
 	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
@@ -290,7 +299,7 @@ void TMXLoader::readXML(TiXmlNode* node,std::vector<int>& data)
 			}
 		}
 	}
-	PRINT(" end data\n%d tiles read\n",(int)data.size());
+	PRINT("\nend data\n%d tiles read\n",(int)data.size());
 }
 
 void TMXLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
@@ -318,7 +327,7 @@ void TMXLoader::readCSV(TiXmlNode* node,std::vector<int>& data)
 	}
 	data.push_back(number);
 	PRINT("%d",number);
-	PRINT(" end data\n%d tiles read",(int)data.size());
+	PRINT("\nend data\n%d tiles read",(int)data.size());
 }
 
 void TMXLoader::decodeblock( unsigned char* in, unsigned char* out ) //in must contain 4 char, out must contain 3 char
@@ -379,7 +388,7 @@ void TMXLoader::readBase64(TiXmlNode* node,const char* compression,std::vector<i
 			data.push_back(gid);
 			PRINT("%d,",gid);
 		}
-		PRINT(" end data\n%d tiles read",(int)data.size());
+		PRINT("\nend data\n%d tiles read",(int)data.size());
 		free(output_text);
 	}
 }
@@ -393,11 +402,11 @@ TMXObjectGroup* TMXLoader::readObjectGroup(TiXmlNode *node)
 	TiXmlElement* pElement = node->ToElement(); //on le converti en element
 	
 	objGroup->name = pElement->Attribute("name");
-	PRINT("name %s\n",objGroup->name.c_str());
+	PRINT("name : %s\n",objGroup->name.c_str());
 	pElement->QueryIntAttribute("width",&(objGroup->width));
-	PRINT("width %d\n",objGroup->width);
+	PRINT("width : %d\n",objGroup->width);
 	pElement->QueryIntAttribute("height",&(objGroup->height));
-	PRINT("height %d\n",objGroup->height);
+	PRINT("height : %d\n",objGroup->height);
 	
 	// et enfin on regarde toutes les balises enfant
 	for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
@@ -447,8 +456,8 @@ void TMXLoader::readObject (TiXmlNode* node, std::vector<TMXObject*> &objects)
     PRINT("name : %s \n",obj->name.c_str());
     PRINT("type : %s \n",obj->type.c_str());
     PRINT("coordonnées : %d; %d\n", obj->posX, obj->posY);
-    PRINT("width %d\n",obj->width);
-    PRINT("height %d\n",obj->height);
+    PRINT("width : %d\n",obj->width);
+    PRINT("height : %d\n",obj->height);
     
     for(TiXmlNode* pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
 	{

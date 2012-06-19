@@ -12,6 +12,7 @@
 #include <string>
 #include <map>
 #include "TMXProperties.h"
+#include "TMXImage.h"
 class TMXProperties;
 
 class TMXTileSet
@@ -22,7 +23,7 @@ public:
 	
 	int firtGlobalID;
 	std::string name;
-	std::string sourceFileName;
+	TMXImage* image;
 	int tileWidth;
 	int tileHeight;
 	int spacing;
