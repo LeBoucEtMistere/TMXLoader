@@ -11,7 +11,7 @@
 #include "TMXLoader.h"
 
 
-#define _LOG_
+
 #include <iostream>
 #ifdef _LOG_
 #define PRINT(...) printf(__VA_ARGS__)
