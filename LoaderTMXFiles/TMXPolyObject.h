@@ -9,6 +9,7 @@
 #ifndef LoaderTMXFiles_TMXPolyObject_h
 #define LoaderTMXFiles_TMXPolyObject_h
 
+
 #include "TMXObject.h"
 #include <vector>
 #include <utility>

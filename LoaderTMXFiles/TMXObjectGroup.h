@@ -9,6 +9,7 @@
 #ifndef LoaderTMXFiles_TMXObjectGroup_h
 #define LoaderTMXFiles_TMXObjectGroup_h
 
+
 #include <string>
 #include <vector>
 #include <algorithm>

@@ -9,6 +9,7 @@
 #ifndef LoaderTMXFiles_TMXImage_h
 #define LoaderTMXFiles_TMXImage_h
 
+
 #include <string>
 
 class TMXImage

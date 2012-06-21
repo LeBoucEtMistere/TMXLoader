@@ -6,7 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+
 #include "TMXLoader.h"
+
 
 #define _LOG_
 #include <iostream>
@@ -29,18 +32,9 @@ bool from_string(T& t,
     return !(iss >> f >> t).fail();
 }
 
-struct PrintPolyPoints 
-{ 
-	void operator ()(std::vector<std::pair<int,int> >::iterator& p) const 
-	{ 
-        PRINT("%d,%d ",p->first, p->second);		
-	} 
-};
-
-
 void error(std::string message)
 {
-	std::cerr<< "Error : " << message << std::endl;
+	std::cerr<< "ERROR : " << message << std::endl;
 }
 
 
@@ -674,9 +668,7 @@ void TMXLoader::readPolyLine(TiXmlNode *node, std::vector<TMXPolyLine *> &polyLi
                 {
                     PRINT("%d,%d ",it->first, it->second);
                 }
-                PRINT("\n");
-                //std::for_each(obj->points.begin(), obj->points.end(),PrintPolyPoints());
-                
+                PRINT("\n");                
             }
 		}
 	}

@@ -8,6 +8,7 @@
 
 #ifndef LoaderTMXFiles_TMXMap_h
 #define LoaderTMXFiles_TMXMap_h
+
 #include "TMXProperties.h"
 class TMXProperties;
 
