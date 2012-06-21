@@ -23,7 +23,7 @@ int main (int argc, const char * argv[])
     }
     //load a .tmx from a file
     
-    TMXMap map = loader.getTMXMap(); //get a TMXMap object from the loader
+    TMXMap *map = loader.getTMXMap(); //get a TMXMap object from the loader
     return 0;
 
 }

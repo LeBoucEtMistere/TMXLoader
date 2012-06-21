@@ -39,8 +39,15 @@ void error(std::string message)
 
 
 TMXLoader::TMXLoader()
-: m_map(NULL)
-{}
+{
+    m_map = new TMXMap;
+}
+
+TMXLoader::~TMXLoader()
+{
+    delete m_map;
+    m_map = NULL;
+}
 
 bool TMXLoader::LoadFromFile(std::string filename)
 {
@@ -59,9 +66,9 @@ bool TMXLoader::LoadFromFile(std::string filename)
     return true;
 }
 
-TMXMap TMXLoader::getTMXMap()
+TMXMap* TMXLoader::getTMXMap()
 {
-    return *m_map;
+    return m_map;
 }
 
 void TMXLoader::readMap(TiXmlNode* node)

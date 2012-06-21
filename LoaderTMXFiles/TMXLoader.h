@@ -36,6 +36,8 @@ public:
      *          false if the laoding failed
      */
     
+    ~TMXLoader();
+
 	bool LoadFromFile(std::string filename);
     
     /*
@@ -44,7 +46,7 @@ public:
      *      return: a copy of a TMXMap object
      */
     
-    TMXMap getTMXMap();
+    TMXMap* getTMXMap();
 	
 	
 private:
